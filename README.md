@@ -1,0 +1,2 @@
+# Maya_python_practice
+MayaでのPythonプログラミングの学習
