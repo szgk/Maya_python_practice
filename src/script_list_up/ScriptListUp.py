@@ -1,10 +1,12 @@
 import os
-import pymel.core as pm
 import subprocess
-import logging
+import pymel.core as pm
+import maya.api.OpenMaya as OpenMaya
+import maya.OpenMayaMPx as OpenMayaMPx
 
-
-class ListScriptsWindow(object):
+class ScriptListUp(object):
+    kPluginCmdName = 'ScriptListUp'
+  
     """
     スクリプトディレクトリにあるPythonスクリプトの一覧を表示するウィンドウを作成するクラス
     """
@@ -16,14 +18,12 @@ class ListScriptsWindow(object):
         self.layout = pm.columnLayout(parent=self.window)
         # スクリプトディレクトリを取得
         self.script_directory = pm.internalVar(userScriptDir=True)
-
-    def show(self):
-        """
-        ウィンドウを表示するメソッド
-        """
-        self.list_scripts()
+        # windowを表示
         pm.showWindow(self.window)
+        self.list_scripts()
 
+    def cmdCreator():
+      return ScriptListUp()
 
     def list_scripts(self):
         """
@@ -38,7 +38,9 @@ class ListScriptsWindow(object):
 
         for script in scripts:
             # スクリプト名をボタンとして表示
-            label = script.replace('.mel', '') + ' copy to clip board'
+            label = script
+            if script.endswith('.mel'):
+              label = script + ' copy to clip board'
             pm.button(label=label, command=lambda _, _script=script: self.run_script(_script))
 
     def run_script(self, script):
@@ -60,11 +62,12 @@ class ListScriptsWindow(object):
           p = subprocess.Popen( ['clip'], stdin=subprocess.PIPE, shell=True )
           p.stdin.write(str.encode(file_name))
 
-def create_plugin():
-    """
-    プラグインのエントリーポイントとなる関数
-    """
-    ListScriptsWindow().show()
-    ListScriptsWindow().list_scripts()
+def initializePlugin(mobject):
+    plugin = OpenMaya.MFnPlugin(mobject)
+    plugin.registerCommand(ScriptListUp.kPluginCmdName, ScriptListUp.cmdCreator)
 
-create_plugin()
+def uninitializePlugin(mobject):
+    pluginFn = OpenMaya.MFnPlugin(mobject)
+    pluginFn.deregisterCommand(ScriptListUp.kPluginCmdName)
+
+ScriptListUp()
