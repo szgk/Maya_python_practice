@@ -11,3 +11,5 @@
 ---
 
 スクリプトエディタに貼り付けて実行してね
+
+![](https://github.com/szgk/maya_python_practice/blob/main/src/script_list_up/ScriptListUp.gif?raw=true)
