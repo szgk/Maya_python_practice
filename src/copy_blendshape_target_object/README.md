@@ -1,5 +1,4 @@
-# Create Sphere
+# Copy Blendshape Target Object
 
-スライダーで指定した位置に球体を作成する window
-
-![screen shot](https://github.com/szgk/Maya_python_practice/blob/main/src/create_sphere/create_sphere.png)
+ブレンドシェイプターゲットを反映させた同名のコピーオブジェクトを作成する
+ソースメッシュを修正してブレンドシェイプターゲットに反映させるとブレンドシェイプ登録ができなくなったりするのを回避するために作成
