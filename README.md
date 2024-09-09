@@ -13,4 +13,5 @@ Maya での Python プログラミングの学習
 4. [copy_blendshape_target_object](https://github.com/szgk/maya_python_practice/tree/main/src/copy_blendshape_target_object)
    - ブレンドシェイプターゲットを反映させた同名のコピーオブジェクトを作成する
    - ソースメッシュを修正してブレンドシェイプターゲットに反映させるとブレンドシェイプ登録ができなくなったりするのを回避するために作成
-5. wip
+5. [translate_blendshape_garbled](https://github.com/szgk/maya_python_practice/tree/main/src/translate_blendshape_garbled)
+   - 文字化けしたブレンドシェイプ名を翻訳してコピー可能な形で表示する
