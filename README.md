@@ -15,3 +15,5 @@ Maya での Python プログラミングの学習
    - ソースメッシュを修正してブレンドシェイプターゲットに反映させるとブレンドシェイプ登録ができなくなったりするのを回避するために作成
 5. [translate_blendshape_garbled](https://github.com/szgk/maya_python_practice/tree/main/src/translate_blendshape_garbled)
    - 文字化けしたブレンドシェイプ名を翻訳してコピー可能な形で表示する
+6. [reset_all_blendshape_value](https://github.com/szgk/maya_python_practice/tree/main/src/reset_all_blendshape_value)
+   - 選択したオブジェクトのBlendshapeの値を全て0にする
