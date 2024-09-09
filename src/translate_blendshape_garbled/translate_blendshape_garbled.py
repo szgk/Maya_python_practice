@@ -40,7 +40,7 @@ def create_scroll_window(tex):
     if cmds.window('scrollableDialog', exists=True):
         cmds.deleteUI('scrollableDialog', window=True)
 
-    window = cmds.window('scrollableDialog', title='スクロール可能なダイアログ')
+    window = cmds.window('scrollableDialog', title='')
 
     # スクロールレイアウトを作成
     cmds.scrollLayout(verticalScrollBarAlwaysVisible=True)
@@ -48,7 +48,7 @@ def create_scroll_window(tex):
     # コラムレイアウト（縦にUI要素を並べる）
     cmds.columnLayout(adjustableColumn=True)
 
-    cmds.scrollField(text=tex, height=500, editable=False, wordWrap=True,)
+    cmds.scrollField(text=tex, height=500, width=1000, editable=False, wordWrap=True,)
 
     # ダイアログにOKボタンを追加
     cmds.button(label='Close', command=lambda *args: cmds.deleteUI(window, window=True))
@@ -69,7 +69,7 @@ def translate_blendshape_garbled():
                 blend_shape_targets = cmds.listAttr(blend_shape + '.w', multi=True)
                 for i, target in enumerate(blend_shape_targets):
                     translated = fbxasc_to_chr(target)
-                    result += translated + '\n' + blend_shape_targets[i] # 翻訳前の文字列を下に表示
+                    result += translated + '\n' + blend_shape_targets[i]  + '\n' # 翻訳前の文字列を下に表示
 
             create_scroll_window(result)
 
