@@ -67,9 +67,9 @@ def translate_blendshape_garbled():
             for blend_shape in blend_shape_nodes:
                 # ブレンドシェイプ内のすべてのターゲット名を取得
                 blend_shape_targets = cmds.listAttr(blend_shape + '.w', multi=True)
-                for target in blend_shape_targets:
+                for i, target in enumerate(blend_shape_targets):
                     translated = fbxasc_to_chr(target)
-                    result += translated + '\n'
+                    result += translated + '\n' + blend_shape_targets[i] # 翻訳前の文字列を下に表示
 
             create_scroll_window(result)
 
