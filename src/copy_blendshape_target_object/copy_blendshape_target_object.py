@@ -1,6 +1,6 @@
 import pymel.core as pm
 
-def get_blendshapes():
+def copy_blendshape_target_object():
     # 選択されたオブジェクトを取得
     selected_objects = pm.ls(selection=True, dag=True, type='transform')
 
@@ -83,7 +83,7 @@ def get_blendshapes():
 
 # プラグインのメイン関数
 def main():
-    get_blendshapes()
+    copy_blendshape_target_object()
 
 # メイン関数を実行
 main()

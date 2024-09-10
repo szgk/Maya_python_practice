@@ -1,4 +1,4 @@
-# Reset All Blendhspa Value
+# Reset All Blendhshape Value
 
 1. オブジェクトを選択
 1. スクリプトを実行
