@@ -18,4 +18,4 @@ Maya での Python プログラミングの学習
 6. [reset_all_blendshape_value](https://github.com/szgk/maya_python_practice/tree/main/src/reset_all_blendshape_value)
    - 選択したオブジェクトの Blendshape の値を全て 0 にする
 7. [copy_weight_to_same_name_object](https://github.com/szgk/maya_python_practice/tree/main/src/copy_weight_to_same_name_object)
-   - 選択した二つのオブジェクトの同じ名前の子オブジェクトへウェイトコピーする
+   - 選択した二つのオブジェクトの子オブジェクトで、同じ名前の者があればウェイトコピーする
