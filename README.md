@@ -16,3 +16,4 @@ Maya での Python プログラミングの学習
 5. [copy_weight_to_same_name_object](https://github.com/szgk/maya_python_practice/tree/main/src/copy_weight_to_same_name_object)
    - 選択した二つのオブジェクトの子オブジェクトで、同じ名前の物があればウェイトコピーする
 6. [export_selected_with_joints](https://github.com/szgk/maya_python_practice/tree/main/src/export_selected_with_joints)
+   - 選択したスキニングされた複数オブジェクトをオブジェクト名でファイル名にして、入力したディレクトリへ一括書き出し
