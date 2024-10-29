@@ -1,6 +1,6 @@
 import pymel.core as pm
 
-def export_selected_with_joints():
+def export_selected_with_joints_and_blendshapes():
     # テキスト入力ダイアログでエクスポート先ディレクトリを入力
     result = pm.promptDialog(
         title='エクスポート先ディレクトリ',
@@ -32,8 +32,9 @@ def export_selected_with_joints():
         object_name = obj.name()
         output_path = f"{output_directory}/{object_name}.fbx".replace("|", "")
         
-        # オブジェクトのスキンクラスターを取得
+        # スキンクラスターとBlendshapeノードを取得
         skin_clusters = pm.listHistory(obj, type='skinCluster')
+        blendshape_nodes = pm.listHistory(obj, type='blendShape')
         
         if not skin_clusters:
             pm.warning(f"{object_name} にはスキンクラスターがありません。")
@@ -44,8 +45,8 @@ def export_selected_with_joints():
         for skin_cluster in skin_clusters:
             joints.update(pm.skinCluster(skin_cluster, query=True, influence=True))
 
-        # オブジェクトとそのジョイントを選択
-        pm.select([obj] + list(joints), replace=True)
+        # エクスポート対象にオブジェクト、ジョイント、Blendshapeノードを含める
+        pm.select([obj] + list(joints) + blendshape_nodes, replace=True)
 
         # エクスポート実行
         pm.exportSelected(output_path, type='FBX export', force=True)
@@ -56,4 +57,4 @@ def export_selected_with_joints():
     print("すべてのオブジェクトのエクスポートが完了しました。")
 
 # スクリプトの実行
-export_selected_with_joints()
+export_selected_with_joints_and_blendshapes()
