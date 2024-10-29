@@ -48,6 +48,9 @@ def export_selected_with_joints_and_blendshapes():
         # エクスポート対象にオブジェクト、ジョイント、Blendshapeノードを含める
         pm.select([obj] + list(joints) + blendshape_nodes, replace=True)
 
+        # FBXエクスポート設定をFBX 2011に設定
+        pm.mel.eval('FBXExportFileVersion -v "FBX201100";')
+
         # エクスポート実行
         pm.exportSelected(output_path, type='FBX export', force=True)
         print(f"エクスポートが完了しました: {output_path}")
