@@ -17,3 +17,5 @@ Maya での Python プログラミングの学習
    - 選択した二つのオブジェクトの子オブジェクトで、同じ名前の物があればウェイトコピーする
 6. [export_selected_with_joints](https://github.com/szgk/maya_python_practice/tree/main/src/export_selected_with_joints)
    - 選択したスキニングされた複数オブジェクトをオブジェクト名でファイル名にして、入力したディレクトリへ一括書き出し
+7. [rename_blend_shape_key](https://github.com/szgk/maya_python_practice/tree/main/src/rename_blend_shape_key)
+   - 選択したスキニングされた複数オブジェクトをオブジェクト名でファイル名にして、入力したディレクトリへ一括書き出し
